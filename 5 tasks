@@ -1,0 +1,124 @@
+#include <iostream>
+using namespace std;
+
+void first() {
+	setlocale(LC_ALL, "rus");
+
+	int quantity, num, cost;
+
+	float price;
+
+	cout << "Введите количество типов товара ";
+
+	cin >> quantity;
+
+	cost = 0;
+
+	for (int i = 1; i <= quantity; i++) {
+
+		cout << "Введите количество " << i << " товара ";
+
+		cin >> num;
+
+		cout << "Введите цену " << i << " товара ";
+
+		cin >> price;
+
+		cost = num * price + cost;
+
+	}
+
+	cout << "Итоговая стоимость покупки " << cost << endl;
+}
+void second()
+{
+	setlocale(LC_ALL, "rus");
+	int a, b, c;
+	cout << "Введите число" << endl;
+	cin >> a;
+	b = a + 24;
+	c = (a + b) * 2;
+	cout << "Первое число: " << a << "  Второе число:" << b << " Третье число:" << c << endl;
+}
+void third() {
+
+	setlocale(LC_ALL, "rus");
+
+	int number;
+	cout << "Введите четырёхзначное число: ";
+	cin >> number;
+	cout << "Данное число наоборот: ";
+	cout << number % 10;
+	number /= 10;
+
+	cout << number % 10;
+	number /= 10;
+	cout << number % 10;
+	number /= 10;
+	cout << number % 10;
+	number /= 10;
+
+	cout << endl << endl;
+
+}
+void fourth() {
+	setlocale(LC_ALL, "rus");
+	int x, choice = 1;
+	while (choice != 2) {
+		cout << "1. Возвести в куб число." << endl;
+		cout << "2.Закрыть программу." << endl;
+		cout << "Ваш выбор: ";
+		cin >> choice;
+
+		switch (choice)
+		case 1: {
+			int x;
+			cout << "Введите значение x = ";
+			cin >> x;
+			cout << x << "^3 = " << pow(x, 3) << endl;
+			break;
+		case 2:
+			break;
+
+		}
+	}
+}
+void fifth()
+{
+	setlocale(LC_ALL, "rus");
+	int a, a1, i, j, c = 0, sum = 0;
+	cout << "Введите начало диапазона : ";
+	cin >> a;
+	cout << endl;
+	cout << "Введите конец диапазона :";
+	cin >> a1;
+	for (i = a; i < a1; i++) {
+		for (j = 1; j <= i; j++) {
+			if (i % j == 0)
+				c = c + 1;
+		}
+		if (c == 2)
+			sum = sum + i;
+		c = 0;
+	}
+	cout << "Сумма простых чисел c " << a << " по " << a1 << " = " << sum << endl;
+}
+
+
+int main()
+{
+	setlocale(LC_ALL, "rus");
+	int mainChoice = 0;
+	while (mainChoice != 9) {
+		cout << "===========================================" << endl;
+		cout << "Введите номер задачи(1-5, 9 - для выхода): " << endl;
+		cin >> mainChoice;
+		switch (mainChoice) {
+		case 1: {first(); break; }
+		case 2: {second(); break; }
+		case 3: {third(); break; }
+		case 4: {fourth(); break; }
+		case 5: {fifth(); break; }
+		}
+	}
+}
